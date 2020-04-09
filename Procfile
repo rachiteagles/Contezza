@@ -1,0 +1,1 @@
+web gunicorn contezza_back:app 
