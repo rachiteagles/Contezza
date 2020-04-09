@@ -37,7 +37,7 @@ class Rest_cont(Resource):
         
         email_from['From'] = From
         email_from['To'] = From
-        email_from['Subject'] = "Query from: "+json['name']+" number: "+json['number']
+        email_from['Subject'] = "Query from: "+json['name']+" number: "+json['number']+" email: "+json['email]
         server.send_message(email_from)
         
         server.quit()
