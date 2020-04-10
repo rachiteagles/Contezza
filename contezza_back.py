@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_restful import Resource, Api
 from flask_cors import CORS
 from email.message import EmailMessage
+from email.utils import formatdate
 import smtplib
 
 app = Flask(__name__)
@@ -38,6 +39,7 @@ class Rest_cont(Resource):
         email_from['From'] = From
         email_from['To'] = From
         email_from['Subject'] = "Query from: "+json['name']+" number: "+json['number']+" email: "+json['email']
+        email_from['Date'] = formatdate(localtime=True)
         server.send_message(email_from)
         
         server.quit()
